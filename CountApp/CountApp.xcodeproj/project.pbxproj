@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F04B83C2C5BAC2D00129698 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F04B83B2C5BAC2D00129698 /* StartView.swift */; };
 		7F4BA6632C59053400C47377 /* RotationAniView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4BA6622C59053400C47377 /* RotationAniView.swift */; };
 		7FCC9B1F2C5B50AE00CB69E3 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC9B1E2C5B50AE00CB69E3 /* AdView.swift */; };
 		7FCC9B222C5B6C9600CB69E3 /* GaugeSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC9B212C5B6C9600CB69E3 /* GaugeSampleView.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F04B83B2C5BAC2D00129698 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		7F4BA6622C59053400C47377 /* RotationAniView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationAniView.swift; sourceTree = "<group>"; };
 		7FCC9B1E2C5B50AE00CB69E3 /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
 		7FCC9B212C5B6C9600CB69E3 /* GaugeSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeSampleView.swift; sourceTree = "<group>"; };
@@ -50,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F04B83A2C5BABF900129698 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7F04B83B2C5BAC2D00129698 /* StartView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		7F4BA6612C59051600C47377 /* AnimationTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +95,7 @@
 		7FE1A19D2C5754D100D22BEA /* CountApp */ = {
 			isa = PBXGroup;
 			children = (
+				7F04B83A2C5BABF900129698 /* UI */,
 				7FCC9B202C5B6C7900CB69E3 /* GaugeTest */,
 				7F4BA6612C59051600C47377 /* AnimationTest */,
 				7FE1A1AE2C586B0C00D22BEA /* BindingTest */,
@@ -191,6 +202,7 @@
 				7F4BA6632C59053400C47377 /* RotationAniView.swift in Sources */,
 				7FCC9B242C5B862500CB69E3 /* ShareData.swift in Sources */,
 				7FE1A1A12C5754D100D22BEA /* ContentView.swift in Sources */,
+				7F04B83C2C5BAC2D00129698 /* StartView.swift in Sources */,
 				7FE1A1B42C586C5100D22BEA /* data.swift in Sources */,
 				7FE1A1B22C586BEF00D22BEA /* NextView.swift in Sources */,
 				7FCC9B222C5B6C9600CB69E3 /* GaugeSampleView.swift in Sources */,

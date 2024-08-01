@@ -10,7 +10,6 @@ import SwiftUI
 struct CountView: View {
     @ObservedObject var sharedata = ShareData()
     @AppStorage("totalcount") private var totalcount = 0
-//    @State private var timer: Timer? = nil
     
     @State var count:Int = 0
     @State var countgood:Int = 0
@@ -48,21 +47,27 @@ struct CountView: View {
                 }
                 Spacer()
                 Button(action: {
+                    sharedata.nextView = true
+                }) {
+                    Text("Home")
+                        .foregroundColor(.black)
+                        .padding(.horizontal)
+                        .background(Color.yellow)
+                        .cornerRadius(15)
+                }
+                Spacer()
+                Button(action: {
                     result = true
                 }) {
-                    Text("結果")
+                    Text("　結果")
                 }.alert(isPresented: $result) {
                     Alert(title: Text("アンケート結果"),
                           message: Text("\n今までの人数:\(totalcount)人\n\n今日の人数\(count)人"),
                           primaryButton: .default(Text("OK")),
                           secondaryButton: .cancel(Text("もっと見る"), action: {
-//                        GaugeSampleView()
-//                            .sheet(isPresented: $, content: {
-//                                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Sheet Content")/*@END_MENU_TOKEN@*/
-//                            })
-                    })
-//                          dismissButton: .default(Text("OK")))
-                          )}
+                        
+                    }))
+                }
             }.frame(width: UIScreen.main.bounds.width-50)
                 .padding(.bottom)
             Text("来場者集計アプリ").font(.largeTitle)
@@ -208,7 +213,9 @@ struct CountView: View {
                 .position(x: 330, y: 10)
             }
             .frame(height:20)
-            
+        }
+        .fullScreenCover(isPresented: $sharedata.nextView) {
+            StartView()
         }
     }
     private func Counts() {
@@ -216,13 +223,13 @@ struct CountView: View {
     }
     
     private func Anitor() {
-            withAnimation(.easeInOut(duration: 0.2).repeatForever(autoreverses: true)) {
-                angle1 -= 45
+        withAnimation(.easeInOut(duration: 0.2).repeatForever(autoreverses: true)) {
+            angle1 -= 45
         }
     }
     private func Anitor1() {
-            withAnimation(.easeInOut(duration: 0.2).repeatForever(autoreverses: true)) {
-                angle2 -= 45
+        withAnimation(.easeInOut(duration: 0.2).repeatForever(autoreverses: true)) {
+            angle2 -= 45
         }
     }
     private func Stop() {
