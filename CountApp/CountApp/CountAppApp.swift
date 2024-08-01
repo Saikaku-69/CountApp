@@ -11,7 +11,7 @@ import SwiftUI
 struct CountAppApp: App {
     var body: some Scene {
         WindowGroup {
-            CountView()
+            StartView()
         }
     }
 }
