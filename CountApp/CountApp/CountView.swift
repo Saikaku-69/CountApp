@@ -12,8 +12,6 @@ struct CountView: View {
     @AppStorage("totalcount") private var totalcount = 0
     
     @State var count:Int = 0
-    @State var countgood:Int = 0
-    @State var countbad:Int = 0
     
     @State var result: Bool = false
     @State var isMessage: Bool = false
@@ -27,11 +25,11 @@ struct CountView: View {
     @State var isWait:Bool = false
     //
     private var goodPercentage: Double {
-        return count > 0 ? Double(countgood) / Double(count) : 0
+        return count > 0 ? Double(sharedata.countgood) / Double(count) : 0
     }
     
     private var badPercentage: Double {
-        return count > 0 ? Double(countbad) / Double(count) : 0
+        return count > 0 ? Double(sharedata.countbad) / Double(count) : 0
     }
     
     var body: some View {
@@ -40,8 +38,8 @@ struct CountView: View {
                 Button(action: {
                     totalcount = 0
                     count = 0
-                    countgood = 0
-                    countbad = 0
+                    sharedata.countgood = 0
+                    sharedata.countbad = 0
                 }) {
                     Text("リセット")
                 }
@@ -63,29 +61,38 @@ struct CountView: View {
                 }.alert(isPresented: $result) {
                     Alert(title: Text("アンケート結果"),
                           message: Text("\n今までの人数:\(totalcount)人\n\n今日の人数\(count)人"),
-                          primaryButton: .default(Text("OK")),
-                          secondaryButton: .cancel(Text("もっと見る"), action: {
-                        
-                    }))
-                }
+                          primaryButton: .default(Text("もっと見る"), action: {
+                        sharedata.isGauge = true
+                    }),
+                          secondaryButton: .default(Text("OK"))
+                )}
             }.frame(width: UIScreen.main.bounds.width-50)
                 .padding(.bottom)
             Text("来場者集計アプリ").font(.largeTitle)
             
-            Text("前日までの来場者")
-                .padding(.vertical)
-            Text("\(totalcount)人")
+            //立体効果追加
+            VStack {
+                Text("前日までの来場者")
+                    .padding(.vertical)
+                Text("\(totalcount)人")
+                
+                Text("今日の来場者")
+                    .padding(.vertical)
+                Text("\(count)人")
+            }
+            .padding(.horizontal, 50)
+            .padding(.bottom)
+            .background(Color.white)
+            .cornerRadius(15)
+            .shadow(color: .gray, radius:15, x: 5, y: 5)
+            //立体効果追加終了
             
-            Text("今日の来場者")
-                .padding(.vertical)
-            Text("\(count)人")
             Spacer()
-            
             //ボタン
             HStack {
                 VStack {
                     Button(action: {
-                        countgood += 1
+                        sharedata.countgood += 1
                         Counts()
                         totalcount += 1
                         Anitor()
@@ -104,13 +111,13 @@ struct CountView: View {
                             .rotationEffect(.degrees(angle1))
                     }
                     .disabled(isWait)
-                    Text("\(countgood)").font(.title)
+                    Text("\(Int(sharedata.countgood))").font(.title)
                         .padding(.vertical)
                 }
                 Spacer()
                 VStack {
                     Button(action: {
-                        countbad += 1
+                        sharedata.countbad += 1
                         Counts()
                         totalcount += 1
                         Anitor1()
@@ -129,7 +136,7 @@ struct CountView: View {
                             .rotationEffect(.degrees(angle2))
                     }
                     .disabled(isWait)
-                    Text("\(countbad)").font(.title)
+                    Text("\(Int(sharedata.countbad))").font(.title)
                         .padding(.vertical)
                 }
             }.frame(width:UIScreen.main.bounds.width/2)
@@ -219,7 +226,7 @@ struct CountView: View {
         }
     }
     private func Counts() {
-        count = countgood + countbad
+        count = Int(sharedata.countgood) + Int(sharedata.countbad)
     }
     
     private func Anitor() {
