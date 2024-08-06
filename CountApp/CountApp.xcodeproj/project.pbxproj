@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7F04B83C2C5BAC2D00129698 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F04B83B2C5BAC2D00129698 /* StartView.swift */; };
+		7F15C4402C62095C00025109 /* graphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F15C43F2C62095C00025109 /* graphView.swift */; };
 		7F4BA6632C59053400C47377 /* RotationAniView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4BA6622C59053400C47377 /* RotationAniView.swift */; };
 		7F7F2B132C5D0376001DC25E /* BorderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7F2B122C5D0376001DC25E /* BorderTest.swift */; };
 		7F7F2B152C5D19A4001DC25E /* totalGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7F2B142C5D19A4001DC25E /* totalGaugeView.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		7F04B83B2C5BAC2D00129698 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		7F15C43F2C62095C00025109 /* graphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = graphView.swift; sourceTree = "<group>"; };
 		7F4BA6622C59053400C47377 /* RotationAniView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationAniView.swift; sourceTree = "<group>"; };
 		7F7F2B122C5D0376001DC25E /* BorderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderTest.swift; sourceTree = "<group>"; };
 		7F7F2B142C5D19A4001DC25E /* totalGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = totalGaugeView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				7F7F2B142C5D19A4001DC25E /* totalGaugeView.swift */,
 				7FCC9B1E2C5B50AE00CB69E3 /* AdView.swift */,
 				7FCC9B232C5B862500CB69E3 /* ShareData.swift */,
+				7F15C43F2C62095C00025109 /* graphView.swift */,
 				7FE1A1A22C5754D400D22BEA /* Assets.xcassets */,
 				7FE1A1A42C5754D400D22BEA /* Preview Content */,
 			);
@@ -205,6 +208,7 @@
 				7F4BA6632C59053400C47377 /* RotationAniView.swift in Sources */,
 				7FCC9B242C5B862500CB69E3 /* ShareData.swift in Sources */,
 				7F04B83C2C5BAC2D00129698 /* StartView.swift in Sources */,
+				7F15C4402C62095C00025109 /* graphView.swift in Sources */,
 				7F7F2B152C5D19A4001DC25E /* totalGaugeView.swift in Sources */,
 				7FE1A1B42C586C5100D22BEA /* data.swift in Sources */,
 				7FE1A1B22C586BEF00D22BEA /* NextView.swift in Sources */,

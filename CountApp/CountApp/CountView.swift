@@ -10,8 +10,8 @@ import SwiftUI
 struct CountView: View {
     @ObservedObject var sharedata = ShareData()
     @AppStorage("totalcount") private var totalcount = 0
-    
-    @State var count:Int = 0
+    @AppStorage("count") private var count = 0
+//    @State var count:Int = 0
     
     @State var result: Bool = false
     @State var isMessage: Bool = false
@@ -72,11 +72,11 @@ struct CountView: View {
             
             //立体効果追加
             VStack {
-                Text("前日までの来場者")
+                Text("今までの来場者")
                     .padding(.vertical)
                 Text("\(totalcount)人")
                 
-                Text("今日の来場者")
+                Text("今回の来場者")
                     .padding(.vertical)
                 Text("\(count)人")
             }
@@ -223,6 +223,9 @@ struct CountView: View {
         }
         .fullScreenCover(isPresented: $sharedata.nextView) {
             StartView()
+        }
+        .fullScreenCover(isPresented: $sharedata.isGauge) {
+            graphView(sharedata: sharedata)
         }
     }
     private func Counts() {
