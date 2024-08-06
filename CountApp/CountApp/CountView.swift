@@ -10,8 +10,8 @@ import SwiftUI
 struct CountView: View {
     @ObservedObject var sharedata = ShareData()
     @AppStorage("totalcount") private var totalcount = 0
-    @AppStorage("count") private var count = 0
-//    @State var count:Int = 0
+//    @AppStorage("count") private var count = 0
+    @State var count:Int = 0
     
     @State var result: Bool = false
     @State var isMessage: Bool = false
