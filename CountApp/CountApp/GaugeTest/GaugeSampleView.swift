@@ -10,7 +10,7 @@ import SwiftUI
 struct GaugeSampleView: View {
     
     @State private var progress: Double = 0.0
-
+    
     var body: some View {
         VStack {
             Gauge(value: progress) {
