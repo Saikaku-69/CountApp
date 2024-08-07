@@ -66,6 +66,12 @@ struct StartView: View {
                         .foregroundColor(.black)
                 }
             }
+            Text("loadding")
+                .background(.green)
+                .opacity(0.8)
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .offset(y:250)
         }
         .frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
         .ignoresSafeArea()
@@ -93,6 +99,7 @@ struct StartView: View {
             }
         }
     }
+    
 }
 
 #Preview {

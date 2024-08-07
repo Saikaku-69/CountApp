@@ -33,194 +33,203 @@ struct CountView: View {
     }
     
     var body: some View {
-        VStack {
-            HStack {
-                Button(action: {
-                    totalcount = 0
-                    count = 0
-                    sharedata.countgood = 0
-                    sharedata.countbad = 0
-                }) {
-                    Text("リセット")
-                }
-                Spacer()
-                Button(action: {
-                    sharedata.nextView = true
-                }) {
-                    Text("Home")
-                        .foregroundColor(.black)
-                        .padding(.horizontal)
-                        .background(Color.yellow)
-                        .cornerRadius(15)
-                }
-                Spacer()
-                Button(action: {
-                    result = true
-                }) {
-                    Text("　結果")
-                }.alert(isPresented: $result) {
-                    Alert(title: Text("アンケート結果"),
-                          message: Text("\n今までの人数:\(totalcount)人\n\n今日の人数\(count)人"),
-                          primaryButton: .default(Text("もっと見る"), action: {
-                        sharedata.isGauge = true
-                    }),
-                          secondaryButton: .default(Text("OK"))
-                )}
-            }.frame(width: UIScreen.main.bounds.width-50)
-                .padding(.bottom)
-            Text("来場者集計アプリ").font(.largeTitle)
-            
-            //立体効果追加
-            VStack {
-                Text("今までの来場者")
-                    .padding(.vertical)
-                Text("\(totalcount)人")
-                
-                Text("今回の来場者")
-                    .padding(.vertical)
-                Text("\(count)人")
-            }
-            .padding(.horizontal, 50)
-            .padding(.bottom)
-            .background(Color.white)
-            .cornerRadius(15)
-            .shadow(color: .gray, radius:15, x: 5, y: 5)
-            //立体効果追加終了
-            
-            Spacer()
-            //ボタン
-            HStack {
-                VStack {
-                    Button(action: {
-                        sharedata.countgood += 1
-                        Counts()
-                        totalcount += 1
-                        Anitor()
-                        isMessage = true
-                        isWait = true
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            isMessage = false
-                            Stop()
-                            isWait = false
-                        }
-                    }) {
-                        Image(systemName: "hand.thumbsup")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: imgSize1)
-                            .rotationEffect(.degrees(angle1))
-                    }
-                    .disabled(isWait)
-                    Text("\(Int(sharedata.countgood))").font(.title)
-                        .padding(.vertical)
-                }
-                Spacer()
-                VStack {
-                    Button(action: {
-                        sharedata.countbad += 1
-                        Counts()
-                        totalcount += 1
-                        Anitor1()
-                        isMessage = true
-                        isWait = true
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            isMessage = false
-                            Stop()
-                            isWait = false
-                        }
-                    }) {
-                        Image(systemName: "hand.thumbsdown")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: imgSize2)
-                            .rotationEffect(.degrees(angle2))
-                    }
-                    .disabled(isWait)
-                    Text("\(Int(sharedata.countbad))").font(.title)
-                        .padding(.vertical)
-                }
-            }.frame(width:UIScreen.main.bounds.width/2)
-            //HStack終了
-            
-            Spacer()
+//        ZStack {
+//            LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]),
+//                           startPoint: .leading,
+//                           endPoint: .trailing
+//            )
+//            .edgesIgnoringSafeArea(.all)
             
             VStack {
-                if isMessage {
-                    Text("ご協力ありがとうございます！")
-                }
-            }
-            .frame(height:20)
-            
-            Spacer()
-            ZStack {
-                //
-                Rectangle()
-                    .stroke(.gray)
-                    .frame(width: 180, height: 30)
                 
-                HStack(spacing: 0) {
-                    Rectangle()
-                        .fill(Color.green)
-                        .frame(width: CGFloat(goodPercentage) * 180, height: 30)
+                HStack {
+                    Button(action: {
+                        totalcount = 0
+                        count = 0
+                        sharedata.countgood = 0
+                        sharedata.countbad = 0
+                    }) {
+                        Text("リセット")
+                    }
+                    Spacer()
+                    Button(action: {
+                        sharedata.nextView = true
+                    }) {
+                        Text("Home")
+                            .foregroundColor(.black)
+                            .padding(.horizontal)
+                            .background(Color.yellow)
+                            .cornerRadius(15)
+                    }
+                    Spacer()
+                    Button(action: {
+                        result = true
+                    }) {
+                        Text("　結果")
+                    }.alert(isPresented: $result) {
+                        Alert(title: Text("アンケート結果"),
+                              message: Text("\n今までの人数:\(totalcount)人\n\n今日の人数\(count)人"),
+                              primaryButton: .default(Text("もっと見る"), action: {
+                            sharedata.isGauge = true
+                        }),
+                              secondaryButton: .default(Text("OK"))
+                        )}
+                }.frame(width: UIScreen.main.bounds.width-50)
+                    .padding(.bottom)
+                Text("来場者集計アプリ").font(.largeTitle)
+                
+                //立体効果追加
+                VStack {
+                    Text("今までの来場者")
+                        .padding(.vertical)
+                    Text("\(totalcount)人")
                     
-                    Rectangle()
-                        .fill(Color.red)
-                        .frame(width: CGFloat(badPercentage) * 180, height: 30)
+                    Text("今回の来場者")
+                        .padding(.vertical)
+                    Text("\(count)人")
                 }
-            }
-            HStack {
-                Rectangle()
-                    .fill(.green)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 10)
-                Text("よかった")
-                Rectangle()
-                    .fill(.red)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 10)
-                Text("悪かった")
-            }
-            
-            Spacer()
-            Text("簡単アンケート")
-                .padding(.vertical)
-            
-            
-            //広告
-            ZStack {
-                Button(action: {
-                    sharedata.isSheet = true
-                }) {
-                    if isCF {
-                        ZStack {
-                            Rectangle().stroke(.gray)
-                                .frame(width: 300,height: 50)
-                            Image("jecimg")
+                .padding(.horizontal, 50)
+                .padding(.bottom)
+                .background(Color.white)
+                .cornerRadius(15)
+                .shadow(color: .gray, radius:15, x: 5, y: 5)
+                //立体効果追加終了
+                
+                Spacer()
+                //ボタン
+                HStack {
+                    VStack {
+                        Button(action: {
+                            sharedata.countgood += 1
+                            Counts()
+                            totalcount += 1
+                            Anitor()
+                            isMessage = true
+                            isWait = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                isMessage = false
+                                Stop()
+                                isWait = false
+                            }
+                        }) {
+                            Image(systemName: "hand.thumbsup")
                                 .resizable()
-                                .frame(width: 280,height: 50)
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: imgSize1)
+                                .rotationEffect(.degrees(angle1))
                         }
+                        .disabled(isWait)
+                        Text("\(Int(sharedata.countgood))").font(.title)
+                            .padding(.vertical)
+                    }
+                    Spacer()
+                    VStack {
+                        Button(action: {
+                            sharedata.countbad += 1
+                            Counts()
+                            totalcount += 1
+                            Anitor1()
+                            isMessage = true
+                            isWait = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                isMessage = false
+                                Stop()
+                                isWait = false
+                            }
+                        }) {
+                            Image(systemName: "hand.thumbsdown")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: imgSize2)
+                                .rotationEffect(.degrees(angle2))
+                        }
+                        .disabled(isWait)
+                        Text("\(Int(sharedata.countbad))").font(.title)
+                            .padding(.vertical)
+                    }
+                }.frame(width:UIScreen.main.bounds.width/2)
+                //HStack終了
+                
+                Spacer()
+                
+                VStack {
+                    if isMessage {
+                        Text("ご協力ありがとうございます！")
                     }
                 }
-                .sheet(isPresented: $sharedata.isSheet) {
-                    AdView()
+                .frame(height:20)
+                
+                Spacer()
+                ZStack {
+                    //
+                    Rectangle()
+                        .stroke(.gray)
+                        .frame(width: 180, height: 30)
+                    
+                    HStack(spacing: 0) {
+                        Rectangle()
+                            .fill(Color.green)
+                            .frame(width: CGFloat(goodPercentage) * 180, height: 30)
+                        
+                        Rectangle()
+                            .fill(Color.red)
+                            .frame(width: CGFloat(badPercentage) * 180, height: 30)
+                    }
+                }
+                HStack {
+                    Rectangle()
+                        .fill(.green)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 10)
+                    Text("よかった")
+                    Rectangle()
+                        .fill(.red)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 10)
+                    Text("悪かった")
                 }
                 
-                Button(action: {
-                    isCF = false
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                        isCF = true
+                Spacer()
+                Text("簡単アンケート")
+                    .padding(.vertical)
+                
+                
+                //広告
+                ZStack {
+                    Button(action: {
+                        sharedata.isSheet = true
+                    }) {
+                        if isCF {
+                            ZStack {
+                                Rectangle().stroke(.gray)
+                                    .frame(width: 300,height: 50)
+                                Image("jecimg")
+                                    .resizable()
+                                    .frame(width: 280,height: 50)
+                            }
+                        }
                     }
-                }) {
-                    if isCF {
-                        Image(systemName: "xmark.circle")
-                            .font(.system(size: 20))
-                            .background(.white)
+                    .sheet(isPresented: $sharedata.isSheet) {
+                        AdView()
                     }
+                    
+                    Button(action: {
+                        isCF = false
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                            isCF = true
+                        }
+                    }) {
+                        if isCF {
+                            Image(systemName: "xmark.circle")
+                                .font(.system(size: 20))
+                                .background(.white)
+                        }
+                    }
+                    .position(x: 330, y: 10)
                 }
-                .position(x: 330, y: 10)
+                .frame(height:20)
             }
-            .frame(height:20)
-        }
+//        }
         .fullScreenCover(isPresented: $sharedata.nextView) {
             StartView()
         }

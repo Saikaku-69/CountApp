@@ -190,7 +190,7 @@ struct AdView: View {
             CGPoint(x: 190, y: 130),
             CGPoint(x: 290, y: 130)
         ]
-        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { _ in
             withAnimation {
                 Position = positions.randomElement() ?? Position
             }

@@ -12,6 +12,7 @@
 		7F4BA6632C59053400C47377 /* RotationAniView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4BA6622C59053400C47377 /* RotationAniView.swift */; };
 		7F7F2B132C5D0376001DC25E /* BorderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7F2B122C5D0376001DC25E /* BorderTest.swift */; };
 		7F7F2B152C5D19A4001DC25E /* totalGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7F2B142C5D19A4001DC25E /* totalGaugeView.swift */; };
+		7FC1CE0D2C631FFB006D7165 /* GradientExView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC1CE0C2C631FFB006D7165 /* GradientExView.swift */; };
 		7FCC9B1F2C5B50AE00CB69E3 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC9B1E2C5B50AE00CB69E3 /* AdView.swift */; };
 		7FCC9B222C5B6C9600CB69E3 /* GaugeSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC9B212C5B6C9600CB69E3 /* GaugeSampleView.swift */; };
 		7FCC9B242C5B862500CB69E3 /* ShareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC9B232C5B862500CB69E3 /* ShareData.swift */; };
@@ -31,6 +32,7 @@
 		7F4BA6622C59053400C47377 /* RotationAniView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationAniView.swift; sourceTree = "<group>"; };
 		7F7F2B122C5D0376001DC25E /* BorderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderTest.swift; sourceTree = "<group>"; };
 		7F7F2B142C5D19A4001DC25E /* totalGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = totalGaugeView.swift; sourceTree = "<group>"; };
+		7FC1CE0C2C631FFB006D7165 /* GradientExView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientExView.swift; sourceTree = "<group>"; };
 		7FCC9B1E2C5B50AE00CB69E3 /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
 		7FCC9B212C5B6C9600CB69E3 /* GaugeSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeSampleView.swift; sourceTree = "<group>"; };
 		7FCC9B232C5B862500CB69E3 /* ShareData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareData.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				7F04B83B2C5BAC2D00129698 /* StartView.swift */,
+				7FC1CE0C2C631FFB006D7165 /* GradientExView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				7F7F2B152C5D19A4001DC25E /* totalGaugeView.swift in Sources */,
 				7FE1A1B42C586C5100D22BEA /* data.swift in Sources */,
 				7FE1A1B22C586BEF00D22BEA /* NextView.swift in Sources */,
+				7FC1CE0D2C631FFB006D7165 /* GradientExView.swift in Sources */,
 				7F7F2B132C5D0376001DC25E /* BorderTest.swift in Sources */,
 				7FCC9B222C5B6C9600CB69E3 /* GaugeSampleView.swift in Sources */,
 				7FE1A19F2C5754D100D22BEA /* CountAppApp.swift in Sources */,
