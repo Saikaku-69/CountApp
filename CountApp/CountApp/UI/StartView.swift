@@ -66,7 +66,7 @@ struct StartView: View {
                         .foregroundColor(.black)
                 }
             }
-            Text("loadding")
+            Text("loadding...")
                 .background(.green)
                 .opacity(0.8)
                 .font(.largeTitle)
