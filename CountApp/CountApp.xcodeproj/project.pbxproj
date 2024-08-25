@@ -10,6 +10,7 @@
 		7F04B83C2C5BAC2D00129698 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F04B83B2C5BAC2D00129698 /* StartView.swift */; };
 		7F15C4402C62095C00025109 /* graphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F15C43F2C62095C00025109 /* graphView.swift */; };
 		7F4BA6632C59053400C47377 /* RotationAniView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4BA6622C59053400C47377 /* RotationAniView.swift */; };
+		7F722AF22C7A86B500013D1B /* PopoverSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F722AF12C7A86B500013D1B /* PopoverSample.swift */; };
 		7F7F2B132C5D0376001DC25E /* BorderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7F2B122C5D0376001DC25E /* BorderTest.swift */; };
 		7F7F2B152C5D19A4001DC25E /* totalGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7F2B142C5D19A4001DC25E /* totalGaugeView.swift */; };
 		7FC1CE0D2C631FFB006D7165 /* GradientExView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC1CE0C2C631FFB006D7165 /* GradientExView.swift */; };
@@ -30,6 +31,7 @@
 		7F04B83B2C5BAC2D00129698 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		7F15C43F2C62095C00025109 /* graphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = graphView.swift; sourceTree = "<group>"; };
 		7F4BA6622C59053400C47377 /* RotationAniView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationAniView.swift; sourceTree = "<group>"; };
+		7F722AF12C7A86B500013D1B /* PopoverSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverSample.swift; sourceTree = "<group>"; };
 		7F7F2B122C5D0376001DC25E /* BorderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderTest.swift; sourceTree = "<group>"; };
 		7F7F2B142C5D19A4001DC25E /* totalGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = totalGaugeView.swift; sourceTree = "<group>"; };
 		7FC1CE0C2C631FFB006D7165 /* GradientExView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientExView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,14 @@
 			path = AnimationTest;
 			sourceTree = "<group>";
 		};
+		7F722AF02C7A868B00013D1B /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				7F722AF12C7A86B500013D1B /* PopoverSample.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		7FCC9B202C5B6C7900CB69E3 /* GaugeTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +113,7 @@
 		7FE1A19D2C5754D100D22BEA /* CountApp */ = {
 			isa = PBXGroup;
 			children = (
+				7F722AF02C7A868B00013D1B /* Test */,
 				7F04B83A2C5BABF900129698 /* UI */,
 				7FCC9B202C5B6C7900CB69E3 /* GaugeTest */,
 				7F4BA6612C59051600C47377 /* AnimationTest */,
@@ -219,6 +230,7 @@
 				7F7F2B132C5D0376001DC25E /* BorderTest.swift in Sources */,
 				7FCC9B222C5B6C9600CB69E3 /* GaugeSampleView.swift in Sources */,
 				7FE1A19F2C5754D100D22BEA /* CountAppApp.swift in Sources */,
+				7F722AF22C7A86B500013D1B /* PopoverSample.swift in Sources */,
 				7FE1A1B02C586B4700D22BEA /* BindingView.swift in Sources */,
 				7FCC9B1F2C5B50AE00CB69E3 /* AdView.swift in Sources */,
 				7FE1A1AD2C57656000D22BEA /* CountView.swift in Sources */,
