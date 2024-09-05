@@ -216,7 +216,6 @@ struct CountView: View {
                         if isCF {
                             Image(systemName: "xmark.circle")
                                 .font(.system(size: 20))
-                                .background(.white)
                         }
                     }
                     .position(x: 330, y: 10)
