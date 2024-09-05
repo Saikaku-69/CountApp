@@ -21,8 +21,7 @@ struct graphView: View {
             }) {
                 Text("戻る")
             }
-            
-            Spacer()
+            .padding(.bottom)
             
             Gauge(value: sharedata.countgood * 0.1) {
                 Text("良いと思う人")

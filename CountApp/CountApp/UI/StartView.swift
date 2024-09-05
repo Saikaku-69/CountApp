@@ -12,6 +12,9 @@ struct StartView: View {
     @State var leftBoxSize: CGFloat = 400
     @State var topBoxSize: CGFloat = 600
     @State var buttonSize: CGFloat = 0
+    @State var textPosition: CGFloat = 700
+    
+    @State var textOpa:CGFloat = 0
     
     var body: some View {
         ZStack {
@@ -50,6 +53,7 @@ struct StartView: View {
             }
             //開始ボタン
             Button(action: {
+                textMove()
                 moveBord()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     buttonColor()
@@ -66,12 +70,13 @@ struct StartView: View {
                         .foregroundColor(.black)
                 }
             }
-            Text("loading...")
-                .background(.green)
-                .opacity(0.8)
+            //Loading
+            Text("CountApp")
                 .font(.largeTitle)
                 .fontWeight(.bold)
-                .offset(y:250)
+                .opacity(textOpa)
+                .position(x:200,y:textPosition)
+            
         }
         .frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
         .ignoresSafeArea()
@@ -80,19 +85,15 @@ struct StartView: View {
         }
     }
     private func moveBord() {
-//        while(leftBoxSize > 0 || topBoxSize > 0) {
-            withAnimation(.linear(duration: 1)) {
-                leftBoxSize = 0
-                topBoxSize = 0
-            }
-//        }
+        withAnimation(.linear(duration: 1)) {
+            leftBoxSize = 0
+            topBoxSize = 0
+        }
     }
     private func buttonColor() {
-//        while(buttonSize < 81) {
-            withAnimation(.linear(duration: 1)) {
-                buttonSize = 80
-            }
-//        }
+        withAnimation(.linear(duration: 1)) {
+            buttonSize = 80
+        }
         if(buttonSize == 80) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 sharedata.nextView = true
@@ -100,7 +101,17 @@ struct StartView: View {
         }
     }
     
+    private func textMove() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            withAnimation(.linear(duration: 2)) {
+                textOpa += 1
+            }
+        }
+    }
+    
 }
+
+
 
 #Preview {
     StartView()

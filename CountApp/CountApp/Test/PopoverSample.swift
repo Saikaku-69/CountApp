@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PopoverSample: View {
     
-    @State private var isPopoverPresented = true
+    @State private var isPopoverPresented = false
 
     var body: some View {
         VStack {
@@ -20,7 +20,7 @@ struct PopoverSample: View {
                 VStack {
                     Text("这是一个 Popover")
                     Button("关闭") {
-                        isPopoverPresented = true
+                        isPopoverPresented = false
                     }
                 }
                 .frame(width: 300, height: 200)

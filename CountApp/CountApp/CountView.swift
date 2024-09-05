@@ -33,12 +33,7 @@ struct CountView: View {
     }
     
     var body: some View {
-//        ZStack {
-//            LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]),
-//                           startPoint: .leading,
-//                           endPoint: .trailing
-//            )
-//            .edgesIgnoringSafeArea(.all)
+        ZStack {
             
             VStack {
                 
@@ -49,24 +44,22 @@ struct CountView: View {
                         sharedata.countgood = 0
                         sharedata.countbad = 0
                     }) {
-                        Text("リセット")
+                        styledButtonText("リセット")
                     }
-                    Spacer()
+                    .frame(maxWidth: .infinity)
                     Button(action: {
                         sharedata.nextView = true
                     }) {
-                        Text("Home")
-                            .foregroundColor(.black)
-                            .padding(.horizontal)
-                            .background(Color.yellow)
-                            .cornerRadius(15)
+                        styledButtonText("Home")
                     }
-                    Spacer()
+                    .frame(maxWidth: .infinity)
                     Button(action: {
                         result = true
                     }) {
-                        Text("　結果")
-                    }.alert(isPresented: $result) {
+                        styledButtonText("結果")
+                    }
+                    .frame(maxWidth: .infinity)
+                    .alert(isPresented: $result) {
                         Alert(title: Text("アンケート結果"),
                               message: Text("\n今までの人数:\(totalcount)人\n\n今日の人数\(count)人"),
                               primaryButton: .default(Text("もっと見る"), action: {
@@ -74,25 +67,26 @@ struct CountView: View {
                         }),
                               secondaryButton: .default(Text("OK"))
                         )}
-                }.frame(width: UIScreen.main.bounds.width-50)
-                    .padding(.bottom)
+                }
+                .frame(width: UIScreen.main.bounds.width-50)
+                .padding(.bottom)
                 Text("来場者集計アプリ").font(.largeTitle)
                 
                 //立体効果追加
-                VStack {
-                    Text("今までの来場者")
-                        .padding(.vertical)
-                    Text("\(totalcount)人")
-                    
-                    Text("今回の来場者")
-                        .padding(.vertical)
-                    Text("\(count)人")
-                }
-                .padding(.horizontal, 50)
-                .padding(.bottom)
-                .background(Color.white)
-                .cornerRadius(15)
-                .shadow(color: .gray, radius:15, x: 5, y: 5)
+                    VStack {
+                        Text("**今までの来場者**")
+                            .padding(.vertical)
+                        styledButtonText("\(totalcount)人")
+                            
+                        Text("**今回の来場者**")
+                            .padding(.vertical)
+                        styledButtonText("\(count)人")
+                    }
+                    .padding(.horizontal, 50)
+                    .padding(.bottom)
+                    .background(Color.backColor)
+                    .cornerRadius(30)
+                    .shadow(color: .gray, radius:1, x: 10, y: 15)
                 //立体効果追加終了
                 
                 Spacer()
@@ -115,6 +109,7 @@ struct CountView: View {
                             Image(systemName: "hand.thumbsup")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
+                                .foregroundColor(.black)
                                 .frame(width: imgSize1)
                                 .rotationEffect(.degrees(angle1))
                         }
@@ -140,6 +135,7 @@ struct CountView: View {
                             Image(systemName: "hand.thumbsdown")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
+                                .foregroundColor(.black)
                                 .frame(width: imgSize2)
                                 .rotationEffect(.degrees(angle2))
                         }
@@ -168,7 +164,7 @@ struct CountView: View {
                     
                     HStack(spacing: 0) {
                         Rectangle()
-                            .fill(Color.green)
+                            .fill(Color(hue: 0.314, saturation: 0.824, brightness: 0.955))
                             .frame(width: CGFloat(goodPercentage) * 180, height: 30)
                         
                         Rectangle()
@@ -178,7 +174,7 @@ struct CountView: View {
                 }
                 HStack {
                     Rectangle()
-                        .fill(.green)
+                        .fill(Color(hue: 0.314, saturation: 0.824, brightness: 0.955))
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 10)
                     Text("よかった")
@@ -201,11 +197,9 @@ struct CountView: View {
                     }) {
                         if isCF {
                             ZStack {
-                                Rectangle().stroke(.gray)
-                                    .frame(width: 300,height: 50)
                                 Image("jecimg")
                                     .resizable()
-                                    .frame(width: 280,height: 50)
+                                    .frame(width: 300,height: 57)
                             }
                         }
                     }
@@ -229,13 +223,16 @@ struct CountView: View {
                 }
                 .frame(height:20)
             }
-//        }
+        }
         .fullScreenCover(isPresented: $sharedata.nextView) {
             StartView()
         }
-        .fullScreenCover(isPresented: $sharedata.isGauge) {
+        .sheet(isPresented: $sharedata.isGauge) {
             graphView(sharedata: sharedata)
+                .presentationDetents([.fraction(0.4)])
         }
+
+        .backgroundGradient()
     }
     private func Counts() {
         count = Int(sharedata.countgood) + Int(sharedata.countbad)
@@ -256,6 +253,33 @@ struct CountView: View {
             angle1 = 0
             angle2 = 0
         }
+    }
+    
+    private func styledButtonText(_ title: String) -> some View {
+        Text(title)
+            .foregroundStyle(.black)
+            .padding(.horizontal,5)
+            .padding(5)
+            .overlay (
+                RoundedRectangle(cornerRadius:15)
+                    .stroke(Color.black,lineWidth: 1)
+            )
+    }
+}
+
+extension Color {
+    static var backColor:Color {
+        return Color(hue: 0.198, saturation: 0.3, brightness: 0.9)
+    }
+}
+
+extension View {
+    func backgroundGradient() -> some View {
+        self.background(
+            LinearGradient(
+                gradient: Gradient(colors: [Color.green.opacity(0.7), Color.blue.opacity(0.7)]),
+                startPoint: .topLeading, endPoint: .bottomTrailing)
+        )
     }
 }
 
