@@ -70,7 +70,7 @@ struct StartView: View {
                         .foregroundColor(.black)
                 }
             }
-            //Loading
+            
             Text("CountApp")
                 .font(.largeTitle)
                 .fontWeight(.bold)
@@ -110,8 +110,6 @@ struct StartView: View {
     }
     
 }
-
-
 
 #Preview {
     StartView()
